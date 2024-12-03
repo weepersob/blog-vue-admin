@@ -1,5 +1,4 @@
 import { createRouter, createWebHashHistory, RouteRecordRaw } from 'vue-router';
-import { usePermissStore } from '../store/permiss';
 import Home from '../views/home.vue';
 import NProgress from 'nprogress';
 import 'nprogress/nprogress.css';
@@ -24,38 +23,10 @@ const routes: RouteRecordRaw[] = [
                 component: () => import(/* webpackChunkName: "dashboard" */ '../views/dashboard.vue'),
             },
             {
-                path: '/system-user',
-                name: 'system-user',
-                meta: {
-                    title: '用户管理',
-                    permiss: '11',
-                },
-                component: () => import(/* webpackChunkName: "system-user" */ '../views/system/user.vue'),
-            },
-            {
-                path: '/system-role',
-                name: 'system-role',
-                meta: {
-                    title: '角色管理',
-                    permiss: '12',
-                },
-                component: () => import(/* webpackChunkName: "system-role" */ '../views/system/role.vue'),
-            },
-            {
-                path: '/system-menu',
-                name: 'system-menu',
-                meta: {
-                    title: '菜单管理',
-                    permiss: '13',
-                },
-                component: () => import(/* webpackChunkName: "system-menu" */ '../views/system/menu.vue'),
-            },
-            {
                 path: '/table',
                 name: 'basetable',
                 meta: {
                     title: '基础表格',
-                    permiss: '31',
                 },
                 component: () => import(/* webpackChunkName: "table" */ '../views/table/basetable.vue'),
             },
@@ -64,16 +35,30 @@ const routes: RouteRecordRaw[] = [
                 name: 'table-editor',
                 meta: {
                     title: '可编辑表格',
-                    permiss: '32',
                 },
                 component: () => import(/* webpackChunkName: "table-editor" */ '../views/table/table-editor.vue'),
             },
+            {
+                path: '/articleEditor',
+                name: 'articleEditor',
+                meta: {
+                    title: '文章编辑',
+                },
+                component: () => import(/* webpackChunkName: "articleEditor" */ '../views/add-edit-article/index.vue'),
+            },
+            // {
+            //     path: '/ArticleList',
+            //     name: 'ArticleList',
+            //     meta: {
+            //         title: '文章列表',
+            //     },
+            //     component: () => import(/* webpackChunkName: "ArticleList" */ '../views/article-list/index.vue'),
+            // },
             {
                 path: '/schart',
                 name: 'schart',
                 meta: {
                     title: 'schart图表',
-                    permiss: '41',
                 },
                 component: () => import(/* webpackChunkName: "schart" */ '../views/chart/schart.vue'),
             },
@@ -82,7 +67,6 @@ const routes: RouteRecordRaw[] = [
                 name: 'echarts',
                 meta: {
                     title: 'echarts图表',
-                    permiss: '42',
                 },
                 component: () => import(/* webpackChunkName: "echarts" */ '../views/chart/echarts.vue'),
             },
@@ -92,7 +76,6 @@ const routes: RouteRecordRaw[] = [
                 name: 'icon',
                 meta: {
                     title: '图标',
-                    permiss: '5',
                 },
                 component: () => import(/* webpackChunkName: "icon" */ '../views/pages/icon.vue'),
             },
@@ -109,25 +92,30 @@ const routes: RouteRecordRaw[] = [
                 name: 'editor',
                 meta: {
                     title: '富文本编辑器',
-                    permiss: '291',
                 },
                 component: () => import(/* webpackChunkName: "editor" */ '../views/pages/editor.vue'),
             },
             {
-                path: '/markdown',
-                name: 'markdown',
+                path: '/articleEdit',
+                name: 'articleEditor',
                 meta: {
-                    title: 'markdown编辑器',
-                    permiss: '292',
+                    title: '文章编辑',
                 },
-                component: () => import(/* webpackChunkName: "markdown" */ '../views/pages/markdown.vue'),
+                component: () => import(/* webpackChunkName: "markdown" */ '../views/pages/ArticleEdit.vue'),
+            },
+            {
+                path: '/articleList',
+                name: 'articleList',
+                meta: {
+                    title: '文章列表',
+                },
+                component: () => import(/* webpackChunkName: "articleList" */ '../views/pages/ArticleList.vue'),
             },
             {
                 path: '/export',
                 name: 'export',
                 meta: {
                     title: '导出Excel',
-                    permiss: '34',
                 },
                 component: () => import(/* webpackChunkName: "export" */ '../views/table/export.vue'),
             },
@@ -136,7 +124,6 @@ const routes: RouteRecordRaw[] = [
                 name: 'import',
                 meta: {
                     title: '导入Excel',
-                    permiss: '33',
                 },
                 component: () => import(/* webpackChunkName: "import" */ '../views/table/import.vue'),
             },
@@ -145,7 +132,6 @@ const routes: RouteRecordRaw[] = [
                 name: 'theme',
                 meta: {
                     title: '主题设置',
-                    permiss: '7',
                 },
                 component: () => import(/* webpackChunkName: "theme" */ '../views/pages/theme.vue'),
             },
@@ -154,7 +140,6 @@ const routes: RouteRecordRaw[] = [
                 name: 'calendar',
                 meta: {
                     title: '日历',
-                    permiss: '24',
                 },
                 component: () => import(/* webpackChunkName: "calendar" */ '../views/element/calendar.vue'),
             },
@@ -163,7 +148,6 @@ const routes: RouteRecordRaw[] = [
                 name: 'watermark',
                 meta: {
                     title: '水印',
-                    permiss: '25',
                 },
                 component: () => import(/* webpackChunkName: "watermark" */ '../views/element/watermark.vue'),
             },
@@ -172,7 +156,6 @@ const routes: RouteRecordRaw[] = [
                 name: 'carousel',
                 meta: {
                     title: '走马灯',
-                    permiss: '23',
                 },
                 component: () => import(/* webpackChunkName: "carousel" */ '../views/element/carousel.vue'),
             },
@@ -181,7 +164,6 @@ const routes: RouteRecordRaw[] = [
                 name: 'tour',
                 meta: {
                     title: '分步引导',
-                    permiss: '26',
                 },
                 component: () => import(/* webpackChunkName: "tour" */ '../views/element/tour.vue'),
             },
@@ -190,7 +172,6 @@ const routes: RouteRecordRaw[] = [
                 name: 'steps',
                 meta: {
                     title: '步骤条',
-                    permiss: '27',
                 },
                 component: () => import(/* webpackChunkName: "steps" */ '../views/element/steps.vue'),
             },
@@ -199,7 +180,6 @@ const routes: RouteRecordRaw[] = [
                 name: 'forms',
                 meta: {
                     title: '表单',
-                    permiss: '21',
                 },
                 component: () => import(/* webpackChunkName: "form" */ '../views/element/form.vue'),
             },
@@ -208,7 +188,6 @@ const routes: RouteRecordRaw[] = [
                 name: 'upload',
                 meta: {
                     title: '上传',
-                    permiss: '22',
                 },
                 component: () => import(/* webpackChunkName: "upload" */ '../views/element/upload.vue'),
             },
@@ -217,7 +196,6 @@ const routes: RouteRecordRaw[] = [
                 name: 'statistic',
                 meta: {
                     title: '统计',
-                    permiss: '28',
                 },
                 component: () => import(/* webpackChunkName: "statistic" */ '../views/element/statistic.vue'),
             },
@@ -274,13 +252,8 @@ const router = createRouter({
 router.beforeEach((to, from, next) => {
     NProgress.start();
     const role = localStorage.getItem('vuems_name');
-    const permiss = usePermissStore();
-
     if (!role && to.meta.noAuth !== true) {
         next('/login');
-    } else if (typeof to.meta.permiss == 'string' && !permiss.key.includes(to.meta.permiss)) {
-        // 如果没有权限，则进入403
-        next('/403');
     } else {
         next();
     }

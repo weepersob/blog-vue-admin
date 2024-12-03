@@ -1,37 +1,44 @@
-import { Menus } from '@/types/menu';
+import {Menus} from '@/types/menu';
 
 export const menuData: Menus[] = [
     {
         id: '0',
         title: '系统首页',
         index: '/dashboard',
-        icon: 'Odometer',
+        icon: 'house',
     },
     {
         id: '1',
-        title: '系统管理',
+        title: '文章管理',
         index: '1',
-        icon: 'HomeFilled',
+        icon: 'Document',
         children: [
             {
-                id: '11',
-                pid: '1',
-                index: '/system-user',
-                title: '用户管理',
+                id: '300',
+                pid: '29',
+                index: '/ArticleList',
+                title: '文章列表',
             },
             {
-                id: '12',
-                pid: '1',
-                index: '/system-role',
-                title: '角色管理',
+                id: '301',
+                pid: '29',
+                index: '/articleEdit',
+                // index: '/articleEditor',
+                title: '文章编辑',
             },
             {
-                id: '13',
-                pid: '1',
-                index: '/system-menu',
-                title: '菜单管理',
+                id: '302',
+                pid: '29',
+                index: '/DraftManage',
+                title: '草稿管理',
             },
-        ],
+            {
+                id: '303',
+                pid: '29',
+                index: '/TagManage',
+                title: '标签管理'
+            }
+        ]
     },
     {
         id: '2',
@@ -166,7 +173,6 @@ export const menuData: Menus[] = [
         icon: 'Guide',
         index: '/icon',
         title: '图标',
-        permiss: '5',
     },
     {
         id: '7',

@@ -92,7 +92,7 @@ const submitForm = (formEl: FormInstance | undefined) => {
     justify-content: center;
     width: 100%;
     height: 100vh;
-    background: url(../../assets/img/login-bg.jpg) center/cover no-repeat;
+    background: url(../../assets/img/login-bg.png) center/cover no-repeat;
 }
 
 .login-header {

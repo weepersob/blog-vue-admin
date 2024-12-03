@@ -85,3 +85,7 @@ i {
 	--header-text-color: #fff;
 	--active-color: var(--el-color-primary);
 }
+
+.el-form-item__label {
+	font-weight: bold;
+}
